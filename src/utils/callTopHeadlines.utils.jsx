@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
-import HeadlinesArray from "../components/headlinesArray/headlinesArray.component";
+import TopHeadlinesArray from "../components/TopHeadlinesArray/TopHeadlinesArray.component";
 
-const CallHeadlines = ({ category }) => {
+const CallTopHeadlines = ({ country }) => {
   const [art, setArt] = useState([]);
   const [called, setCalled] = useState(false);
-  const query = "bitcoin";
   useEffect(() => {
-    fetch(`http://localhost:3001/getnews/${category}`)
+    fetch(`http://localhost:3001/Top/${country}`)
       .then((response) => response.json())
       .then((response) => {
         setArt(response);
+        console.log(response);
         setCalled(true);
       });
-  }, [called, category]);
+  }, [called, country]);
 
   const check = (arti) => {
     if (arti === undefined) {
       return <div>loading</div>;
     } else {
-      return <HeadlinesArray key={1} articles={arti} />;
+      return <TopHeadlinesArray key={1} articles={arti} />;
     }
   };
 
   return <div>{check(art.articles)}</div>;
 };
 
-export default CallHeadlines;
+export default CallTopHeadlines;

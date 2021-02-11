@@ -18,13 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Header = ({ country, setCountry, category, setCategory }) => {
   const classes = useStyles();
-  const [country, setCountry] = useState("in");
-
-  useEffect(() => {
-    //change headlines according to country
-  }, [country]);
 
   const handleChange = (event) => {
     setCountry(event.target.value);
@@ -32,7 +27,7 @@ const Header = () => {
   return (
     <div className="headers">
       <div className="category-change">
-        <Categories />
+        <Categories setCategory={setCategory} category={category} />
       </div>
       <div className="country-change">
         <FormControl className={classes.formControl}>

@@ -7,14 +7,15 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import noimage from "../../assets/noimage.jpg";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 700,
+    maxWidth: 300,
   },
 });
 
-const Headlines = ({ title, publishedAt, url, urlToImage, desc }) => {
+const TopHeadlines = ({ title, publishedAt, url, urlToImage, desc }) => {
   const classes = useStyles();
 
   return (
@@ -24,7 +25,7 @@ const Headlines = ({ title, publishedAt, url, urlToImage, desc }) => {
           component="img"
           alt={title}
           height="140"
-          image={`${urlToImage}`}
+          image={urlToImage ? `${urlToImage}` : noimage}
           title={title}
         />
         <CardContent>
@@ -45,4 +46,4 @@ const Headlines = ({ title, publishedAt, url, urlToImage, desc }) => {
   );
 };
 
-export default Headlines;
+export default TopHeadlines;

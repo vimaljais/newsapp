@@ -16,8 +16,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Categories = () => {
+const Categories = ({ setCategory }) => {
   const classes = useStyles();
+
+  const handleChange = (event) => {
+    setCategory(event.target.value);
+  };
 
   return (
     <div className={classes.root}>
@@ -27,13 +31,27 @@ const Categories = () => {
         color="primary"
         aria-label="large outlined primary button group"
       >
-        <Button color="secondary">Business</Button>
-        <Button>Sports</Button>
-        <Button>Entertainment</Button>
-        <Button>General</Button>
-        <Button>Health</Button>
-        <Button>Science</Button>
-        <Button>Technology</Button>
+        <Button onClick={handleChange} color="secondary" value={"Business"}>
+          Business
+        </Button>
+        <Button onClick={handleChange} value={"Sports"}>
+          Sports
+        </Button>
+        <Button onClick={handleChange} value={"Entertainment"}>
+          Entertainment
+        </Button>
+        <Button onClick={handleChange} value={"General"}>
+          General
+        </Button>
+        <Button onClick={handleChange} value={"Health"}>
+          Health
+        </Button>
+        <Button onClick={handleChange} value={"Science"}>
+          Science
+        </Button>
+        <Button onClick={handleChange} value={"Technology"}>
+          Technology
+        </Button>
       </ButtonGroup>
     </div>
   );

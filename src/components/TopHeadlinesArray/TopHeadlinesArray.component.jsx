@@ -1,7 +1,6 @@
 import React from "react";
-import Headlines from "../headlines/headlines.components";
+import TopHeadlines from "../TopHeadlines/TopHeadlines.component";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,13 +14,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const HeadlinesArray = ({ articles }) => {
+const TopHeadlinesArray = ({ articles }) => {
   const classes = useStyles();
 
   const cardArray = articles.map((user, i) => {
     return (
       <div className={classes.root}>
-        <Headlines
+        <TopHeadlines
           key={i}
           title={articles[i].title}
           url={articles[i].url}
@@ -36,4 +35,4 @@ const HeadlinesArray = ({ articles }) => {
   return <div> {cardArray}</div>;
 };
 
-export default HeadlinesArray;
+export default TopHeadlinesArray;
